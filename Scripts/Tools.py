@@ -62,7 +62,7 @@ def plot_histogram(df, column, ax, title='', bins=50, alpha=0.5, color='b', dens
     - title: String, title of the histogram.
     - bins: Integer, number of bins to use in the histogram.
     """
-    plt.hist(column, bins=bins, ax=ax, alpha=alpha, color=color, density=density)
+    df.hist(column, bins=bins, ax=ax, alpha=alpha, color=color, density=density)
     ax.set_title(title)
     ax.set_xlabel(column)
     ax.set_ylabel('Frequency')
