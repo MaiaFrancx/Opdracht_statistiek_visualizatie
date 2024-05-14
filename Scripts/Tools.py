@@ -6,6 +6,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.stats as stats
+from statsmodels.distributions.empirical_distribution import ECDF
 
 # Constants
 dirdataprod = os.path.join(os.path.dirname(os.getcwd()), "Data\Input\Data_productie")
@@ -51,7 +52,7 @@ def plot_production(df, ax, title, hline):
     ax.spines['right'].set_visible(False)
 
 
-def plot_histogram(df, column, ax, title='', bins=50, alpha=0.5, color='b', density=False):
+def plot_histogram(df, column, axp, title='', binsp=50, alphap=0.5, colorp='b', densityp=False):
     """
     Plots a histogram for a specified column of a DataFrame.
 
@@ -62,12 +63,12 @@ def plot_histogram(df, column, ax, title='', bins=50, alpha=0.5, color='b', dens
     - title: String, title of the histogram.
     - bins: Integer, number of bins to use in the histogram.
     """
-    df.hist(column, bins=bins, ax=ax, alpha=alpha, color=color, density=density)
-    ax.set_title(title)
-    ax.set_xlabel(column)
-    ax.set_ylabel('Frequency')
-    ax.spines['top'].set_visible(False)
-    ax.spines['right'].set_visible(False)
+    df.hist(column, bins=binsp, ax=axp, alpha=alphap, color=colorp, density=densityp)
+    axp.set_title(title)
+    axp.set_xlabel(column)
+    axp.set_ylabel('Frequency')
+    axp.spines['top'].set_visible(False)
+    axp.spines['right'].set_visible(False)
 
 
 def model_prod(p, mu, sigma):
@@ -84,3 +85,18 @@ def model_prod(p, mu, sigma):
         return 0
     else:
         return np.random.normal(loc=mu, scale=sigma)
+
+def plot_ecdf(ecdf, ax, title='ECDF'):
+    """
+        Plots an ECDF on a specified axes object.
+
+        Parameters:
+        - ecdf: ECDF object (must have .x and .y attributes).
+        - ax: matplotlib axes object where the ECDF will be plotted.
+        - title: Title for the plot.
+        """
+    ax.plot(ecdf.x, ecdf.y)
+    ax.set_title(title)
+    ax.set_xlabel('Value')
+    ax.set_ylabel('ECDF')
+    ax.grid(True)
