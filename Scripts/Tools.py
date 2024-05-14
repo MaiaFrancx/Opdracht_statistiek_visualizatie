@@ -99,4 +99,6 @@ def plot_ecdf(ecdf, ax, title='ECDF'):
     ax.set_title(title)
     ax.set_xlabel('Value')
     ax.set_ylabel('ECDF')
+    axp.spines['top'].set_visible(False)
+    axp.spines['right'].set_visible(False)
     ax.grid(True)
