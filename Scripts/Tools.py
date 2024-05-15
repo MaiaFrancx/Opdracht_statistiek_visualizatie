@@ -13,6 +13,12 @@ dirdataprod = os.path.join(os.path.dirname(os.getcwd()), "Data\Input\Data_produc
 dirbru = os.path.join(os.path.dirname(os.getcwd()), "Data\Input\Data_productie\Daily_production\BRU")
 dirsto = os.path.join(os.path.dirname(os.getcwd()), "Data\Input\Data_productie\Daily_production\STO")
 
+# Plot Style
+plt.rcParams.update({
+    'axes.spines.top': False,
+    'axes.spines.right': False
+})
+
 # Functions
 
 
@@ -48,8 +54,6 @@ def plot_production(df, ax, title, hline):
     ax.set_title(title + ' Production')
     ax.set_xlabel('Date')
     ax.set_ylabel('Production')
-    ax.spines['top'].set_visible(False)
-    ax.spines['right'].set_visible(False)
 
 
 def plot_histogram(df, column, axp, title='', binsp=50, alphap=0.5, colorp='b', densityp=False):
@@ -67,8 +71,6 @@ def plot_histogram(df, column, axp, title='', binsp=50, alphap=0.5, colorp='b', 
     axp.set_title(title)
     axp.set_xlabel(column)
     axp.set_ylabel('Frequency')
-    axp.spines['top'].set_visible(False)
-    axp.spines['right'].set_visible(False)
 
 
 def model_prod(p, mu, sigma):
@@ -85,8 +87,9 @@ def model_prod(p, mu, sigma):
         return 0
     else:
         return np.random.normal(loc=mu, scale=sigma)
+    
 
-def plot_ecdf(ecdf, ax, title='ECDF'):
+def plot_ecdf(ecdf, ax, theo_max, title='ECDF'):
     """
         Plots an ECDF on a specified axes object.
 
@@ -94,11 +97,12 @@ def plot_ecdf(ecdf, ax, title='ECDF'):
         - ecdf: ECDF object (must have .x and .y attributes).
         - ax: matplotlib axes object where the ECDF will be plotted.
         - title: Title for the plot.
+        - theo_max: the theoretical maximum value for production over n days
         """
     ax.plot(ecdf.x, ecdf.y)
     ax.set_title(title)
     ax.set_xlabel('Value')
     ax.set_ylabel('ECDF')
-    ax.spines['top'].set_visible(False)
-    ax.spines['right'].set_visible(False)
+    for quartile in range(1, 4):
+        ax.axvline(x = theo_max * quartile * 0.25, color = 'r', linestyle = '--' )
     ax.grid(True)
