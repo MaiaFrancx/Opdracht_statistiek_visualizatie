@@ -5,6 +5,7 @@ import json
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy.stats import norm
 import scipy.stats as stats
 from statsmodels.distributions.empirical_distribution import ECDF
 
@@ -16,7 +17,8 @@ dirsto = os.path.join(os.path.dirname(os.getcwd()), "Data\Input\Data_productie\D
 # Plot Style
 plt.rcParams.update({
     'axes.spines.top': False,
-    'axes.spines.right': False
+    'axes.spines.right': False,
+    'legend.frameon': False
 })
 
 # Functions
@@ -106,3 +108,4 @@ def plot_ecdf(ecdf, ax, theo_max, title='ECDF'):
     for quartile in range(1, 4):
         ax.axvline(x = theo_max * quartile * 0.25, color = 'r', linestyle = '--' )
     ax.grid(True)
+
