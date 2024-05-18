@@ -136,7 +136,6 @@ def compare_ecdf_to_normal(data, ax, num_samples):
 
     # Plot the ECDF and the theoretical normal CDF
 
-    #    ax.plot(ecdf.x, ecdf.y, linestyle= 'solid', marker='.', markersize=1, label='ECDF')
     ax.plot(ecdf.x, ecdf.y, '-r', linewidth=2, label='ECDF')
     ax.plot(x, cdf, label='Normal CDF')
     ax.fill_between(x, cdf, color='skyblue', alpha=0.4)
