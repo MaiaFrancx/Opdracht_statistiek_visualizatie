@@ -5,6 +5,7 @@ import json
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.ticker import FuncFormatter
 from scipy.stats import norm
 import scipy.stats as stats
 from statsmodels.distributions.empirical_distribution import ECDF
@@ -107,7 +108,7 @@ def plot_ecdf(ecdf, ax, theo_max, title='ECDF'):
     ax.set_ylabel('ECDF')
     for quartile in range(1, 4):
         ax.axvline(x = theo_max * quartile * 0.25, color = 'r', linestyle = '--' )
-    ax.fill_between(ecdf.x, ecdf.y, ecdf.y - ecdf.y, color = 'm', alpha=0.2)
+    ax.fill_between(ecdf.x, ecdf.y, color = 'm', alpha=0.2)
     ax.grid(True)
 
 
@@ -145,3 +146,5 @@ def compare_ecdf_to_normal(data, ax, num_samples):
     ax.set_ylabel('Cumulative Probability')
     ax.legend()
 
+def thousands_formatter(x, pos):
+    return '%1.0fK' % (x * 1e-3)
