@@ -145,5 +145,6 @@ def compare_ecdf_to_normal(data, ax, num_samples):
     ax.set_ylabel('Cumulative Probability')
     ax.legend()
 
+
 def thousands_formatter(x, pos):
-    return '%1.0fK' % (x * 1e-3)
+    return f'{x / 1000:.1f}K'
