@@ -20,7 +20,7 @@ De .yaml-file staat rechtstreeks in de root-directory van dit project. <br>
 Voor dit deel moet slechts 1 Notebook <b>"productieproces-kf.ipynb"</b> worden uitgevoerd. <br>
 Die Notebook verwijst naar het <b>Tools.py</b> bestand (ondergebracht in Scripts) waarin imports, plot styles, en functies worden gedefinieerd.
 
-Er werd geopteerd om zowel het Prodcutieproces van Brussel (BRU) als van Stockholm (STO) te analyseren en te modeleren. <br>
+Er werd geopteerd om zowel het Prodcutieproces van Brussel (BRU) als van Stockholm (STO) te analyseren en te modelleren. <br>
 De visualisaties voor beide steden worden telkens naast elkaar getoond. <br>
 
 
