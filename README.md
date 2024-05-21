@@ -39,7 +39,7 @@ met daarnaast een productie die iets minder normaalverdeeld lijkt door de aanwez
 
 ### Modeleren van 1 Productiedag
 
-Het modeleren van een productiedag bestaat uit het bepalen van <br>
+Het modelleren van een productiedag bestaat uit het bepalen van <br>
 - enerzijds het percentage nul-dagen (18% voor BRU, 7% voor STO), en <br>
 - anderzijds de parameters van de normaalverdeling die de niet-nul-dagen het best fit. <br>
 
