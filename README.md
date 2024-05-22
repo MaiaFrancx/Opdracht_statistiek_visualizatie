@@ -16,7 +16,7 @@ De cars.csv file is te groot voor GitHub, gelieve deze rechtstreeks in de folder
 <br>
 
 
-## Deel 1 : Productieproces modeleren
+## Deel 1 : Productieproces modelleren
 
 Voor dit deel moet slechts 1 Notebook <b>"productieproces.ipynb"</b> worden uitgevoerd. <br>
 Die Notebook verwijst naar het <b>Tools.py</b> bestand (ondergebracht in Scripts) waarin imports, plot styles, en functies worden gedefinieerd.
