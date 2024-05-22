@@ -12,6 +12,7 @@ Hierbij de instructies om de GitHub https://github.com/MaiaFrancx/Opdracht_stati
 ## Te installeren
 
 De .yaml-file staat rechtstreeks in de root-directory van dit project. <br>
+De cars.csv file is te groot voor GitHub, gelieve deze rechtstreeks in de folder Data\input te plaatsen.
 <br>
 
 
